@@ -1,0 +1,52 @@
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+
+
+.functions {
+
+  direction: dir(ltr);
+  direction: dir(rtl);
+
+  float: lr(left);
+  float: lr(right);
+
+  text-align: lr(left);
+  text-align: lr(right);
+
+  margin-#{ lr(right) }: 20px;
+  margin-#{ lr(left) }: 20px;
+
+  padding-#{ lr(right) }: 20px;
+  padding-#{ lr(left) }: 20px;
+
+  border-#{ lr(right) }: 1px solid gray;
+  border-#{ lr(left) }: 1px solid gray;
+
+  margin: fr(10px, 15px, 20px, 25px);
+  padding: fr(10px, 15px, 20px, 25px);
+
+  transform: translateX( pn(-30px) );
+  transform: translateX( pn(30px) );
+  transform: translate( pn(-30px), 1px );
+  transform: translate( pn(30px), 1px );
+
+}
+
+
+.mixins {
+
+  @include edir(direction, ltr);
+  @include edir(direction, rtl);
+
+  @include edir(margin, 10px, 15px, 20px, 25px);
+  @include edir(padding, 10px, 15px, 20px, 25px);
+
+  @include mr(10px);
+  @include ml(10px);
+  @include pr(10px);
+  @include pl(10px);
+  @include br(10px solid gray);
+  @include bl(10px solid gray);
+
+}
