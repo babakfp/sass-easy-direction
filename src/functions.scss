@@ -1,65 +1,27 @@
 @use 'sass:string';
+@import './functions/core.scss';
+@import './functions/translate.scss';
+@import './functions/boolean.scss';
+@import './functions/direction.scss';
 
-
-/*
-type of output: boolean
-description: is $string contains $find
-*/
-@function contains($string, $find) {
-
-  @if str-index($string, $find) {
-
-    @return true;
-
-  } @else {
-
-    @return false;
-  }
-  
-}
 
 
 /*
-type of output: string
-description: return value in String type
-*/
-@function to-string($value) {
 
-  @return inspect($value);
-}
-
-
-@function dir($direction) {
-
-  @if $easy_dir-is_active == true {
-
-    @if $direction == ltr {
-
-      $direction: rtl;
-
-    } @else if $direction == rtl {
-
-      $direction: ltr;
-    }
-
-    @return $direction;
-
-  } @else {
-
-    @return $direction;
-  }
-
-}
-
-
-/*
 type of output: value selfs
-=> input(left) output(right)
-And conversely^
+
+preview:
+  prop-left:  => prop-right:
+  prop-right: => prop-left:
+  prop: left  => prop: right
+  prop: right => prop: left
+---------------------------------
+
 */
+
 @function lr($prop_dir) {
 
-  @if $easy_dir-is_active == true {
+  @if $easyDir == true {
 
     @if $prop_dir == left {
 
@@ -80,17 +42,24 @@ And conversely^
 }
 
 
+
 /*
+
 type of output: string
-=> input(1px) output(-1px)
-=> input(-1px) output(1px)
+
+preview:
+  prop: -10px => prop: 10px
+  prop: 3rem => prop: -3rem
+---------------------------------
+
 */
+
 @function pn($value) {
 
-  @if $easy_dir-is_active == true {
+  @if $easyDir == true {
 
     // convert the value to string
-    $value: to-string($value);
+    $value: toString($value);
     
     @if contains($value, "-") {
 
@@ -108,14 +77,21 @@ type of output: string
 }
 
 
-/*
-type of output: value selfs
-=> input(1px 2px 3px 4px) output(1px 4px 3px 2px)
-And conversely^
-*/
-@function fr($value-1, $value-2, $value-3, $value-4) {
 
-  @if $easy_dir-is_active == true {
+/*
+
+type of output: value selfs
+
+preview:
+  prop: 1px 2px 3px 4px => prop: 1px 4px 3px 2px
+  prop: 10% 20% 30% 40% => prop: 10% 40% 30% 20%
+---------------------------------
+
+*/
+
+@function sf($value-1, $value-2, $value-3, $value-4) {
+
+  @if $easyDir == true {
 
     @return $value-1 $value-4 $value-3 $value-2;
 

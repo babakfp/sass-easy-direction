@@ -1,6 +1,5 @@
 @import 'variables';
 @import 'functions';
-@import 'mixins';
 
 
 .functions {
@@ -23,30 +22,15 @@
   border-#{ lr(right) }: 1px solid gray;
   border-#{ lr(left) }: 1px solid gray;
 
-  margin: fr(10px, 15px, 20px, 25px);
-  padding: fr(10px, 15px, 20px, 25px);
+  margin: sf(1px, 2px, 3px, 4px);
+  padding: sf(10%, 20%, 30%, 40%);
 
   transform: translateX( pn(-30px) );
   transform: translateX( pn(30px) );
   transform: translate( pn(-30px), 1px );
   transform: translate( pn(30px), 1px );
 
-}
-
-
-.mixins {
-
-  @include edir(direction, ltr);
-  @include edir(direction, rtl);
-
-  @include edir(margin, 10px, 15px, 20px, 25px);
-  @include edir(padding, 10px, 15px, 20px, 25px);
-
-  @include mr(10px);
-  @include ml(10px);
-  @include pr(10px);
-  @include pl(10px);
-  @include br(10px solid gray);
-  @include bl(10px solid gray);
+  transform: translate(-30%, 10px);
+  transform: translateX(20px);
 
 }

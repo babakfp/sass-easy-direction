@@ -1,0 +1,80 @@
+@use 'sass:string';
+
+
+
+/*
+
+warning: this will disable css prop value translateX.
+
+preview:
+  transform: translateX(30px) => transform: translateX(-30px)
+  transform: translateX(-20%) => transform: translateX(20%)
+---------------------------------
+
+*/
+
+@function translateX($value) {
+
+  @if useTranslateX() == true {
+    // convert value Type to string
+    $value: toString($value);
+
+    // If valye(type:string) contain "-"
+    @if containsDash($value) {
+
+      @return string.unquote("translateX(" + string.slice($value, 2) + ")");
+      // output= translateX(changed value)
+
+    } @else {
+
+      // positive value to negative
+      @return string.unquote("translateX(-" + $value + ")");
+    }
+
+  } @else {
+
+    // returns original prop and value
+    @return string.unquote("translateX(" + $value + ")");
+  }
+
+}
+
+
+
+/*
+
+warning: this will disable css prop value translate.
+
+preview:
+  transform: translate(30px, 10px) => transform: translate(-30px, 10px)
+  transform: translate(-20%, 10%) => transform: translate(20%, 10%)
+---------------------------------
+
+*/
+
+@function translate($valueX, $valueY) {
+
+  @if useTranslate() == true {
+
+    // convert value Type to string
+    $valueX: toString($valueX);
+
+    // If valye(type:string) contain "-"
+    @if containsDash($valueX) {
+
+      @return string.unquote("translate(" + string.slice($valueX, 2) + "," + $valueY + ")");
+      // output= translate(changed value, original value)
+
+    } @else {
+
+      // positive value to negative
+      @return string.unquote("translate(-" + $valueX + "," + $valueY + ")");
+    }
+
+  } @else {
+
+    // returns original prop and value
+    @return string.unquote("translate(" + $valueX + "," + $valueY + ")");
+  }
+
+}
