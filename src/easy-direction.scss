@@ -1,0 +1,29 @@
+// required
+@import "variables";
+@import "functions";
+
+.TEST {
+
+  direction: e(ltr);
+  direction: e(rtl);
+
+  float: e(left);
+  float: e(right);
+  text-align: e(left);
+  text-align: e(right);
+
+  margin-#{e(left)}: 20px;
+  margin-#{e(right)}: 20px;
+  padding-#{e(left)}: 20px;
+  padding-#{e(right)}: 20px;
+
+  border-#{e(left)}: 1px solid;
+  border-#{e(right)}: 1px solid;
+  border-#{e(left)}-color: 1px solid;
+  border-#{e(right)}-color: 1px solid;
+
+  transform: translate(300%, 300px);
+  transform: translate(-30%, -30px);
+  transform: translateX(200px);
+  transform: translateX(-20px);
+}

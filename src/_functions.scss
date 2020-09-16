@@ -1,0 +1,47 @@
+@use "sass:string";
+@import "functions/global";
+@import "functions/translate";
+
+@function e($prop){
+  
+  @if eActive(){
+
+    // direction
+    @if $prop == ltr {
+      $prop: rtl;
+    } @else if $prop == rtl {
+      $prop: ltr;
+    }
+      
+    // left and right
+    @if $prop == left {
+      $prop: right;
+    } @else if $prop == right {
+      $prop: left;
+    }
+
+    @if typeOf($prop) == number {
+
+      $prop: toString($prop);
+
+      @if containsDash() {
+        $prop: string.slice($prop, 2);
+      } @else {
+        $prop: -#{$prop};
+      }
+    }
+
+    @return $prop;
+
+  } @else {
+    @return $prop;
+  }
+}
+
+@function e4($prop...){
+  @if length($prop) == 4 {
+    @return nth($prop, 1) nth($prop, 4) nth($prop, 3) nth($prop, 2);
+  } @else if length($prop) < 4 {
+    @error "function props is less than 4. please add 4 props to e4() function.";
+  }
+}

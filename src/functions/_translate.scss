@@ -1,0 +1,50 @@
+@use "sass:string";
+
+
+@function translateFunctionality($data){
+
+  $data: toString($data);
+
+  @if containsDash($data){
+    
+    // remove -
+    $data: string.slice($data, 2);
+
+  } @else {
+    // add -
+    $data: -#{$data};
+  }
+
+  @return $data;
+  
+}
+
+
+// warning: this will disable core css translate functionality.
+// preview:
+//  transform: translate(30px, 10px) => transform: translate(-30px, 10px)
+//  transform: translate(-20%, 10%) => transform: translate(20%, 10%)
+
+@function translate($x, $y){
+
+  @if eTranslate(){
+    $x: translateFunctionality($x)
+  }
+
+  @return string.unquote("translate(" + $x + ", " + $y + ")");
+}
+
+
+// warning: this will disable core css translateX functionality.
+// preview:
+//  transform: translateX(30px) => transform: translateX(-30px)
+//  transform: translateX(-20%) => transform: translateX(20%)
+
+@function translateX($data){
+
+  @if eTranslate() {
+    $data: translateFunctionality($data)
+  }
+
+  @return string.unquote("translateX(" + $data + ")");
+}

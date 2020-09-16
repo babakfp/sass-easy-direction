@@ -1,11 +1,11 @@
 // turn on/off lib functionality.
-$easyDir: true !default;
+$eActive: true !default;
 
 // direction than you want to styles be convert.
-$easyDir-dir: rtl !default;
+$eConvertTo: rtl !default;
 
-// Smart translate
+// Smart translates
 // this will disable css prop value translate.
-$easyDir-translate: true !default;
+$eTranslate: true !default;
 // this will disable css prop value translateX.
-$easyDir-translateX: true !default;
+$eTranslateX: true !default;

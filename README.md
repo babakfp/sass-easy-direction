@@ -6,31 +6,29 @@ A CSS library for easily create separate RTL and LTR css style files.
 
 ###### direction
 
-``` direction: dir(rtl) ``` => ``` direction: ltr ```
+``` direction: e(rtl) ``` => ``` direction: ltr ```
 
-``` direction: dir(ltr) ``` => ``` direction: rtl ```
+``` direction: e(ltr) ``` => ``` direction: rtl ```
 
 
 ###### left and right
-``` prop-#{ lr(left) }: ```  => ``` prop-right: ```
+``` prop-#{e(left)}: ```    => ``` prop-right: ```
 
-``` prop-#{ lr(right) }: ``` => ``` prop-left: ```
+``` prop-#{e(right)}: ```   => ``` prop-left: ```
 
-``` prop: lr(left) ```       => ``` prop: right ```
+``` prop: e(left) ```       => ``` prop: right ```
 
-``` prop: lr(right) ```      => ``` prop: left ```
+``` prop: e(right) ```      => ``` prop: left ```
 
 
 ###### positive and negative
 
-``` prop: pn(-10px) ``` => ``` prop: 10px  ```
+``` prop: e(-10px) ``` => ``` prop: 10px  ```
 
-``` prop: pn(3rem) ```  => ``` prop: -3rem ```
+``` prop: e(3rem) ```  => ``` prop: -3rem ```
 
 
 ###### translate
-
-Sass function that are used for this prop, are same name with original css prop value name. 
 
 ``` transform: translate(30px, 10px) ``` => ``` transform: translate(-30px, 10px) ```
 
@@ -38,8 +36,6 @@ Sass function that are used for this prop, are same name with original css prop 
 
 
 ###### translateX
-
-Sass function that are used for this prop, are same name with original css prop value name. 
 
 ``` transform: translateX(30px) ``` =>  ``` transform: translateX(-30px) ```
 
@@ -52,25 +48,33 @@ Sass function that are used for this prop, are same name with original css prop 
 
 ###### turn on/off functionality.
 
-``` $easyDir: true !default; ```
+``` $eActive: true !default; ```
 
 
 ###### direction than you want to styles be convert.
 
-``` $easyDir-dir: rtl !default; ```
+``` $eConvertTo: rtl !default; ```
 
 
 ###### this will disable css prop value translate.
 
-``` $easyDir-translate: true !default; ```
+``` $eTranslate: true !default; ```
 
 
 ###### this will disable css prop value translateX.
 
-``` $easyDir-translateX: true !default; ```
+``` $eTranslateX: true !default; ```
 
 
 
 ## How to use
 Use the sass functions that I created, in your project. in the end, export a .css file named RTL(for original ltr projects) or ltr(for original RTL projects). load specific direction to specific countries.
 All .scss files are required to include it in your project.
+
+
+
+## New update detiles
+- Add new function named 'e()' to control output.
+- Add new 'e4()' function to control props with 4 values like:margin,padding.
+- Remove lr, pn, dir functions.
+- Change variables name located in variables folder.
