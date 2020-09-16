@@ -75,6 +75,6 @@ All .scss files are required to include it in your project.
 
 ## New update detiles
 - Add new function named 'e()' to control output.
-- Add new 'e4()' function to control props with 4 values like:margin,padding.
+- Add new 'e4()' function to control props with 4 values (like:margin and padding).
 - Remove lr, pn, dir functions.
 - Change variables name located in variables folder.
