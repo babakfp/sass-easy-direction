@@ -1,4 +1,4 @@
-# easy-dir
+# easy-direction
 A CSS library for easily create separate RTL and LTR css style files.
 
 
