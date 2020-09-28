@@ -1,36 +1,31 @@
 @use "sass:string";
 
 
-@function translateFunctionality($data){
+// core translate functionality.
+// adds (-) to positive values and removes (-) from negative values.
+@function core-translate($p){
+  $p: to-string($p);
 
-  $data: toString($data);
-
-  @if containsDash($data){
-    
+  @if str-index($p, "-") {
     // remove -
-    $data: string.slice($data, 2);
-
+    $p: string.slice($p, 2);
   } @else {
     // add -
-    $data: -#{$data};
+    $p: -#{$p};
   }
 
-  @return $data;
-  
+  @return $p;
 }
 
 
 // warning: this will disable core css translate functionality.
 // preview:
-//  transform: translate(30px, 10px) => transform: translate(-30px, 10px)
-//  transform: translate(-20%, 10%) => transform: translate(20%, 10%)
-
+// transform: translate(30px, 10px) => transform: translate(-30px, 10px)
+// transform: translate(-20%, 10%) => transform: translate(20%, 10%)
 @function translate($x, $y){
-
-  @if eTranslate(){
-    $x: translateFunctionality($x)
+  @if $is-active and $activate-translate {
+    $x: core-translate($x)
   }
-
   @return string.unquote("translate(" + $x + ", " + $y + ")");
 }
 
@@ -39,12 +34,9 @@
 // preview:
 //  transform: translateX(30px) => transform: translateX(-30px)
 //  transform: translateX(-20%) => transform: translateX(20%)
-
 @function translateX($data){
-
-  @if eTranslate() {
-    $data: translateFunctionality($data)
+  @if $is-active and $activate-translate-x {
+    $data: core-translate($data)
   }
-
   @return string.unquote("translateX(" + $data + ")");
 }

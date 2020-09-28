@@ -1,11 +1,6 @@
-// turn on/off lib functionality.
-$eActive: true !default;
+// turn on/off
+$is-active: true !default;
 
-// direction than you want to styles be convert.
-$eConvertTo: rtl !default;
-
-// Smart translates
-// this will disable css prop value translate.
-$eTranslate: true !default;
-// this will disable css prop value translateX.
-$eTranslateX: true !default;
+// smart translate. this will disable pure css translate|translateX functionality
+$activate-translate: true !default;
+$activate-translate-x: true !default;

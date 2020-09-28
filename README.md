@@ -1,80 +1,54 @@
 # easy-direction
-A CSS library for easily create separate RTL and LTR css style files.
+A CSS library to easily convert styles from LTR```to```RTL and RTL```to```LTR.
 
 
-## Sync
+## How it works?
+This library will give you a sass/scss function named e(). give your value as a prop to this functin and it will carry all heavy stuff.
 
-###### direction
+```scss
 
-``` direction: e(rtl) ``` => ``` direction: ltr ```
+.direction {
+  direction: e(ltr);
+  direction: rtl; // output
+}
 
-``` direction: e(ltr) ``` => ``` direction: rtl ```
+.left-and-right {
+  float: e(left);
+  float: right; // output
 
+  margin-#{e(left)}: 1rem;
+  margin-right: 1rem; // output
+}
 
-###### left and right
-``` prop-#{e(left)}: ```    => ``` prop-right: ```
+.positive-and-negative-values {
+  right: e(-1%);
+  right: 1%; // output
+}
 
-``` prop-#{e(right)}: ```   => ``` prop-left: ```
+.translate-and-translateX {
+  transform: translate(1px, 1px);
+  transform: translate(-1px, 1px); // output
 
-``` prop: e(left) ```       => ``` prop: right ```
+  transform: translateX(1rem);
+  transform: translateX(-1rem); // output
+}
+// ^ for this you dont need to use e() function.
 
-``` prop: e(right) ```      => ``` prop: left ```
-
-
-###### positive and negative
-
-``` prop: e(-10px) ``` => ``` prop: 10px  ```
-
-``` prop: e(3rem) ```  => ``` prop: -3rem ```
-
-
-###### translate
-
-``` transform: translate(30px, 10px) ``` => ``` transform: translate(-30px, 10px) ```
-
-``` transform: translate(-20%, 10%) ```  => ``` transform: translate(20%, 10%) ```
-
-
-###### translateX
-
-``` transform: translateX(30px) ``` =>  ``` transform: translateX(-30px) ```
-
-``` transform: translateX(-20%) ``` => ``` transform: translateX(20%) ```
-
+```
 
 
 ## Variables
+```scss
 
+// turn on/off conversion
+$is-active: true !default;
 
-###### turn on/off functionality.
+// smart translate. this will disable pure css translate|translateX functionality.
+$activate-translate: true !default;
+$activate-translate-x: true !default;
 
-``` $eActive: true !default; ```
-
-
-###### direction than you want to styles be convert.
-
-``` $eConvertTo: rtl !default; ```
-
-
-###### this will disable css prop value translate.
-
-``` $eTranslate: true !default; ```
-
-
-###### this will disable css prop value translateX.
-
-``` $eTranslateX: true !default; ```
-
-
+```
 
 ## How to use
-Use the sass functions that I created, in your project. in the end, export a .css file named RTL(for original ltr projects) or ltr(for original RTL projects). load specific direction to specific countries.
-All .scss files are required to include it in your project.
-
-
-
-## New update detiles
-- Add new function named 'e()' to control output.
-- Add new 'e4()' function to control props with 4 values (like:margin and padding).
-- Remove lr, pn, dir functions.
-- Change variables name located in variables folder.
+Download and import ```src/index``` file in your project ;)
+There is a demo file to help you understand how all works.

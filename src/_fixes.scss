@@ -1,0 +1,4 @@
+// return is string type
+@function to-string($p){
+  @return inspect($p);
+}
