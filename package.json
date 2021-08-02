@@ -1,0 +1,6 @@
+{
+	"scripts": {
+		"demo": "sass demo.sass:demo.css --no-source-map",
+		"demo:watch": "sass demo.sass:demo.css --watch --no-source-map"
+	}
+}

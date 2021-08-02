@@ -1,0 +1,32 @@
+@use "sass:string"
+@use "sass:list"
+
+
+@function e($p)
+
+  @if $is-active
+
+    @if $p == ltr
+      $p: rtl
+    @else if $p == rtl
+      $p: ltr
+
+    @else if $p == left
+      $p: right
+    @else if $p == right
+      $p: left
+
+    @else if type-of($p) == number
+      $p: to-string($p)
+
+      @if str-index($p, "-")
+        $p: string.slice($p, 2)
+      @else
+        $p: -#{$p}
+
+    @if type-of($p) == list
+      @if list.length($p) <= 0
+        @error "it need to be 4 velue"
+      @return nth($p, 1) nth($p, 4) nth($p, 3) nth($p, 2)
+    
+  @return $p
