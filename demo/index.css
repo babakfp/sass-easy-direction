@@ -1,19 +1,22 @@
 .direction-property {
   direction: rtl;
+  direction: ltr;
 }
 
 .left-and-right-properties {
   float: right;
-  margin-right: 1px;
+  margin-left: 1px;
 }
 
 .positive-and-negative-values {
   left: -1px;
   right: 1px;
+  left: 1px;
 }
 
 .value-with-4-units {
   margin: 1px 4px 3px 2px;
+  margin: 1px -4px 3px -2px;
 }
 
 .translate-and-translateX {
