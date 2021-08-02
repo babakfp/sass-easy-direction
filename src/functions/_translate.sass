@@ -1,0 +1,22 @@
+@use "sass:string"
+@use "./positive-to-negative-and-vice-versa" as *
+
+
+// warning: this will disable core css translate functionality.
+// preview:
+// transform: translate(30px, 10px) => transform: translate(-30px, 10px)
+// transform: translate(-20%, 10%) => transform: translate(20%, 10%)
+@function translate($x, $y)
+  @if $is-active
+    $x: positive-to-negative-and-vice-versa($x)
+  @return string.unquote("translate(#{$x}, #{$y})")
+
+
+// warning: this will disable core css translateX functionality.
+// preview:
+//  transform: translateX(30px) => transform: translateX(-30px)
+//  transform: translateX(-20%) => transform: translateX(20%)
+@function translateX($data)
+  @if $is-active
+    $data: positive-to-negative-and-vice-versa($data)
+  @return string.unquote("translateX(#{$data})")

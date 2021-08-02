@@ -1,0 +1,40 @@
+@use "sass:string"
+@use "sass:list"
+@use "./positive-to-negative-and-vice-versa" as *
+
+
+@function _($v)
+
+  // Return the input value if the library were disabled.
+  @if not $is-active == true
+    @return $v
+
+
+  // start:: LTR and RTL
+  @if $v == ltr
+    @return rtl
+
+  @if $v == rtl
+    @return ltr
+  // end:: LTR and RTL
+
+
+  // start:: Left and Right
+  @if $v == left
+    @return right
+
+  @if $v == right
+    @return left
+  // end:: Left and Right
+
+
+  // Convert units (vice versa) Positive or Negative.
+  @if type-of($v) == number
+    @return positive-to-negative-and-vice-versa($v)
+
+
+  // Value with 4 units.
+  @if type-of($v) == list
+    @if not list.length($v) == 4
+      @error "ERROR:: 4 units are needed"
+    @return nth($v, 1) nth($v, 4) nth($v, 3) nth($v, 2)

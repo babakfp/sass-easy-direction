@@ -1,0 +1,27 @@
+@import "../index"
+
+.direction-property
+  direction: _(ltr)
+
+.left-and-right-properties
+  float: _(left)
+  margin-#{_(left)}: 1px
+
+.positive-and-negative-values
+  left: _(1px)
+  right: _(-1px)
+
+.value-with-4-units
+  margin: _(1px 2px 3px 4px)
+
+.translate-and-translateX
+  transform: translate(1px, 2px)
+  transform: translateX(1px)
+
+@include html-ltr
+  .class
+    color: blue
+
+@include html-rtl
+  .class
+    color: red
