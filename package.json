@@ -1,7 +1,7 @@
 {
-	"name": "sass-easy-direction",
+	"name": "sass-rtl",
 	"description": "A SASS library that helps you to easily convert styles from LTR to RTL and RTL to LTR.",
-	"version": "2.0.1",
+	"version": "2.5.0",
 	"license": "MIT",
 	"scripts": {
 		"demo": "sass demo/index.sass:demo/index.css --no-source-map",
@@ -9,7 +9,7 @@
 	},
 	"main": "./index.sass",
 	"funding": "https://idpay.ir/babakfp",
-	"repository": "github:babakfp/sass-easy-direction",
-	"homepage": "https://github.com/babakfp/sass-easy-direction",
-	"keywords": ["css direction", "css multi lang", "sass", "scss", "sass library", "scss library"]
+	"repository": "github:babakfp/sass-rtl",
+	"homepage": "https://github.com/babakfp/sass-rtl",
+	"keywords": ["sass rtl", "scss rtl"]
 }

@@ -1,11 +1,3 @@
-@mixin html-dir($dir)
+@mixin _($dir)
 	html[dir="#{$dir}"]
-		@content
-
-@mixin html-ltr
-	@include html-dir(ltr)
-		@content
-
-@mixin html-rtl
-	@include html-dir(rtl)
 		@content
